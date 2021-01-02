@@ -10,9 +10,70 @@ Microsystems entity get Apache Microsystems Created-By Manifest-Version
 0_20-b02
 -------!#f kill al entity =========================
 
-fkill 0_20-b02( all Created-By drop the bomb)))))))____ Ω
-￦0 01 1 11 00 1pqpqp0p0qpq0pp0p0p0l011&|Ω>>>>>>>Г
-Гreset Manifest-Version 1pqpqp0p0qpq0pp0p0p0l01 1&-------Θ
-^   ^  entity
-call stack 666 //-------
+fkill 0_20-b02( all Created-By drop the bomb)))))))____ C
+￦0 01 1 11 00 1pqpqp0p0qpq0pp0p0p0l011&|Ω>>>>>>>ГR {}{10101010101010010110101010101000000000|
+Гreset Manifest-Version 1pqpqp0p0qpq0pp0p0p0l01 1&-------Θ                                    |    |
+^   entity get  ^  entity Von MAGIC:-------------------------------------------------- ;;;;;;;;;;;;;;;,.,.,..:?:?:?:?:?:?:?:?::?:?:?:?:?::?:?:?:?:?:?:?,.,,,.
+  push:
+    branches: The Light Bringer Lives in Gods Mighty Shadow 
+    - main
+    - release/* 
+call stack 666 //-------\-\-\-\-\-\-\-\]-\]\-\-\\-\-\\\\=-\=-\=-\=-\-\-\-\-\---\-]--]--]-]]--]-]---/-//-/-//-////\\\\\\\\\\\\\\\\\\\\\\||||
+------------------------------------=-=-=-=-0=-=0-=-=--==-=--=-=-=-=-=-=-=-=-=-=-=-=-[-=-[-=-[=-[-=-[-=-[-=[-=-[-==-=-=-=-=-=-
+
 place demoms Incata/com.offsec.nhterm.yml
+//////////////////////////////////////////////////////////////
+
+on:
+  push:
+    branches:
+    - main
+    - release/*
+      
+      on:
+  pull_request:
+    branches:
+    - main
+////////////////////////
+on:
+  schedule:
+  - cron: "0 2 * * 1-5"
+    //////////////////////////
+    jobs:
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-16.04
+    
+    - name: Setup Node
+  uses: actions/setup-node@v1
+  with:
+    node-version: '10.x'
+
+///////////////////////////////////////////////////////////////////
+
+- name: Install Dependencies
+  run: npm install
+  
+  jobs:
+  test:
+    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: ['8', '10', '12']
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node_version }}
+
+    - name: npm install, build and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm test
+        
+        ///////
